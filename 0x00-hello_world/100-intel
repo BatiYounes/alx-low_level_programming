@@ -1,2 +1,2 @@
 #!/bin/bash
-CFILE=$CFILE    FILENAME=$(basename "$CFILE" .c) gcc -S -masm=intel "$CFILE" -o "$FILENAME.s"
+CFILE=$CFILE FILENAME=$(basename "$CFILE" .c)  gcc -S -masm=intel "$CFILE" -o  "${FILENAME}.s" sed -i '1i .file   "'"$FILENAME.c"'"' "${FILENAME}.s" sed -i '2i .intel_syntax noprefix'  ${FILENAME}.s"
