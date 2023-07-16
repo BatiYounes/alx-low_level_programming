@@ -1,2 +1,2 @@
 #!/bin/bash
-CFILE="$CFILE.c" if [ -f "$CFILE" ]; then   gcc -S -masm=intel "$CFILE" && mv "$(basename "$CFILE" .c).s" "$(basename "$CFILE" .c).asm" else   echo "C file '$CFILE' not found." fi
+gcc -S -masm=intel $CFILEcase 
