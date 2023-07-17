@@ -7,24 +7,24 @@
  */
 int main(void)
 {
-	int tens_digit, ones_digit;
+    int tens_digit, ones_digit;
 
-	for (tens_digit = 0; tens_digit <= 8; tens_digit++)
-	{
-		for (ones_digit = tens_digit + 1; ones_digit <= 9; ones_digit++)
-		{
-			putchar(tens_digit + '0');
-			putchar(ones_digit + '0');
+    for (tens_digit = 0; tens_digit <= 8; tens_digit++)
+    {
+        for (ones_digit = tens_digit + 1; ones_digit <= 9; ones_digit++)
+        {
+            putchar(tens_digit + '0');
+            putchar(ones_digit + '0');
 
-			if (tens_digit != 8 || ones_digit != 9)
-			{
-				putchar(',');
-				putchar(' ');
-			}
-		}
-	}
+            if (tens_digit != 8 || ones_digit != 9)
+            {
+                putchar(',');
+                putchar(' ');
+            }
+        }
+    }
 
-	putchar('\n');
+    putchar('\n');
 
-	return 0;
+    return (0);
 }
