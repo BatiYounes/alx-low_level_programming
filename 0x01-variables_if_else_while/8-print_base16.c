@@ -1,27 +1,16 @@
 #include <stdio.h>
 
-/**
- * main - Entry point of the program
- *
- * Description: Prints numbers of base 10 in lowercase
- *
- * Return: Always 0 (Success)
- */
 int main(void)
 {
-	char c;
+    char ch;
 
-	for (c = '0'; c <= '9'; c++)
-	{
-		putchar(c);
-	}
+    for (ch = '0'; ch <= '9'; ch++)
+        putchar(ch);
 
-	for (c = 'a'; c <= 'f'; c++)
-	{
-		putchar(c);
-	}
+    for (ch = 'a'; ch <= 'f'; ch++)
+        putchar(ch);
 
-	putchar('\n');
+    putchar('\n');
 
-	return 0;
+    return 0;
 }
