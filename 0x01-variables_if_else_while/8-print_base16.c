@@ -3,20 +3,22 @@
 /**
  * main - Entry point of the program
  *
+ * Description: Prints numbers of base 10 in lowercase
+ *
  * Return: Always 0 (Success)
  */
 int main(void)
 {
-	char digit;
+	char c;
 
-	for (digit = '0'; digit <= '9'; digit++)
+	for (c = '0'; c <= '9'; c++)
 	{
-		putchar(digit);
+		putchar(c);
 	}
 
-	for (digit = 'a'; digit <= 'f'; digit++)
+	for (c = 'a'; c <= 'f'; c++)
 	{
-		putchar(digit);
+		putchar(c);
 	}
 
 	putchar('\n');
