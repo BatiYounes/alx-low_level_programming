@@ -9,9 +9,9 @@
 int main(void)
 {
 	ssize_t len = sizeof("and that piece of art is useful\" - Dora Korpar, 2015-10-19\n") - 1;
+	const char *str = "and that piece of art is useful\" - Dora Korpar, 2015-10-19\n";
 
-	/* Write the string to the standard error */
-	write(2, "and that piece of art is useful\" - Dora Korpar, 2015-10-19\n", len);
+	write(2, str, len);
 
 	return (1);
 }
