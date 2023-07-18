@@ -1,10 +1,7 @@
-#include "10-main.h"
-
-/* Declaration of _putchar function */
-int _putchar(char c);
+void _putchar(char c); // Declaration of _putchar function
 
 /**
- * print_alphabet_x10 - Prints the alphabet in lowercase 10 times.
+ * print_alphabet_x10 - Prints the alphabet in lowercase ten times
  */
 void print_alphabet_x10(void)
 {
