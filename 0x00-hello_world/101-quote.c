@@ -1,17 +1,16 @@
 #include <unistd.h>
 
+#define MESSAGE "and that piece of art is useful\" - Dora Korpar, 2015-10-19\n"
+
 /**
  * main - Entry point of the program
  *
- * Description: Prints a specific string to the standard error
+ * Description: Prints a specific message to standard error
+ *
  * Return: Always 1 (indicating an error)
  */
 int main(void)
 {
-	ssize_t len = sizeof("and that piece of art is useful\" - Dora Korpar, 2015-10-19\n") - 1;
-	const char *str = "and that piece of art is useful\" - Dora Korpar, 2015-10-19\n";
-
-	write(2, str, len);
-
+	write(2, MESSAGE, sizeof(MESSAGE) - 1);
 	return (1);
 }
