@@ -1,10 +1,7 @@
-#include "10-main.h"
-
-/* Function prototype */
-void print_alphabet_x10(void);
+void print_alphabet_x10(void); // Declaration of print_alphabet_x10 function
 
 /**
- * main - check the code for Holberton School students.
+ * main - check the code.
  *
  * Return: Always 0.
  */
