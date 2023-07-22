@@ -1,16 +1,17 @@
 #include "main.h"
-#include <stdio.h>
 
 /**
- * fizz_buzz - Prints numbers from 1 to 100 with Fizz-Buzz conditions.
+ * main - Entry point, prints Fizz-Buzz
+ *
+ * Return: Always 0 (Success)
  */
-void fizz_buzz(void)
+int main(void)
 {
 	int i;
 
 	for (i = 1; i <= 100; i++)
 	{
-		if (i % 3 == 0 && i % 5 == 0)
+		if ((i % 3 == 0) && (i % 5 == 0))
 			printf("FizzBuzz");
 		else if (i % 3 == 0)
 			printf("Fizz");
@@ -21,7 +22,8 @@ void fizz_buzz(void)
 
 		if (i != 100)
 			printf(" ");
-		else
-			printf("\n");
 	}
+
+	printf("\n");
+	return (0);
 }

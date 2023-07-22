@@ -1,13 +1,12 @@
 #include "main.h"
 
 /**
- * main - Prints numbers from 1 to 100 with Fizz-Buzz conditions.
+ * main - Entry point, calls fizz_buzz function
  *
- * Return: Always 0.
+ * Return: Always 0 (Success)
  */
 int main(void)
 {
-    fizz_buzz();
-    return (0);
+	fizz_buzz();
+	return (0);
 }
-

@@ -1,6 +1,9 @@
 #ifndef MAIN_H
 #define MAIN_H
 
+#include <stdio.h>
+
+/* Function prototypes */
 int _putchar(char c);
 void print_alphabet(void);
 void print_alphabet_x10(void);
@@ -30,4 +33,4 @@ void print_triangle(int size);
 long largest_prime_factor(long n);
 void print_number(int n);
 
-#endif /* MAIN_H */ 
+#endif /* MAIN_H */
