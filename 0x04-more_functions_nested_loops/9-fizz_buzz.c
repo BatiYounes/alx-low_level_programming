@@ -2,7 +2,7 @@
 #include <stdio.h>
 
 /**
- * fizz_buzz - Prints the numbers from 1 to 100, with Fizz, Buzz, or FizzBuzz.
+ * fizz_buzz - Prints numbers from 1 to 100 with Fizz-Buzz conditions.
  */
 void fizz_buzz(void)
 {
@@ -19,9 +19,9 @@ void fizz_buzz(void)
 		else
 			printf("%d", i);
 
-		if (i < 100)
+		if (i != 100)
 			printf(" ");
+		else
+			printf("\n");
 	}
-
-	printf("\n");
 }
