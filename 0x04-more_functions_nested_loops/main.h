@@ -1,4 +1,4 @@
-#ifndef MAIN_H
+0;276;0c#ifndef MAIN_H
 #define MAIN_H
 
 int _putchar(char c);
@@ -30,4 +30,4 @@ void print_triangle(int size);
 long largest_prime_factor(long n);
 void print_number(int n);
 
-#endif /* MAIN_H */ 
+#endif /* MAIN_H */
