@@ -28,6 +28,6 @@ void print_diagsums(int *a, int size);
 void set_string(char **s, char *to);
 void print_triangle(int size);
 long largest_prime_factor(long n);
+void print_number(int n);
 
-
-#endif /* MAIN_H */
+#endif /* MAIN_H */ 
