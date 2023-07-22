@@ -9,3 +9,4 @@ int main(void)
     printf("%ld\n", result);
     return (0);
 }
+
