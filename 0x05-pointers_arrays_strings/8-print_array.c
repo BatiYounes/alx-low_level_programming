@@ -11,7 +11,10 @@ void print_array(int *a, int n)
 	int i;
 
 	if (a == NULL || n <= 0)
+	{
+		printf("\n"); /* Print a new line and return if n is 0 or negative*/
 		return;
+	}
 
 	for (i = 0; i < n; i++)
 	{
