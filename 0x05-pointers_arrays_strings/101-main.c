@@ -15,7 +15,7 @@ int main(void)
 
     printf("Generated password: %s\n", password);
 
-    free(password); // Don't forget to free the allocated memory
+    free(password); /* Don't forget to free the allocated memory */
 
     return (EXIT_SUCCESS);
 }

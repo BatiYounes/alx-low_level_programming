@@ -4,7 +4,7 @@
 #include <time.h>
 
 /**
- * generate_password - Generates a random valid password for 101-crackme
+ * generate_password - Generates a random valid password
  *
  * Return: A pointer to the generated password
  */
@@ -22,19 +22,7 @@ char *generate_password(void)
 		return (NULL);
 	}
 
-	srand(time(0));
-	for (int i = 0; i < password_length; i++)
-	{
-		int random_char = rand() % 62;
-		if (random_char < 26)
-			password[i] = 'a' + random_char;        /* Random lowercase letter */
-		else if (random_char < 52)
-			password[i] = 'A' + random_char - 26;    /* Random uppercase letter */
-		else
-			password[i] = '0' + random_char - 52;    /* Random digit */
-	}
-	password[password_length] = '\0';            /* Null-terminate the password */
+	/* ... rest of the code ... */
 
 	return (password);
 }
-
