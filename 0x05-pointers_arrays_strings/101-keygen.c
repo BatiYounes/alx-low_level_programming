@@ -1,28 +1,30 @@
-#include "main.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
 
-/**
- * generate_password - Generates a random valid password
- *
- * Return: A pointer to the generated password
- */
-char *generate_password(void)
+#define PASSWORD_LENGTH 64
+
+char generate_random_char(void)
 {
-	/* Implement your password generation logic here */
+	char random_char = (rand() % ('~' - '!')) + '!';
+	return (random_char);
+}
 
-	/* Example: Generate a random password of length 10 */
-	int password_length = 10;
-	char *password = malloc((password_length + 1) * sizeof(char));
+int main(void)
+{
+	char password[PASSWORD_LENGTH + 1];
+	int i;
 
-	if (password == NULL)
+	srand(time(NULL));
+
+	for (i = 0; i < PASSWORD_LENGTH; i++)
 	{
-		fprintf(stderr, "Error: Memory allocation failed.\n");
-		return (NULL);
+		password[i] = generate_random_char();
 	}
 
-	/* ... rest of the code ... */
+	password[PASSWORD_LENGTH] = '\0';
 
-	return (password);
+	printf("%s\n", password);
+
+	return (0);
 }

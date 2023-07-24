@@ -1,21 +1,19 @@
-#include "main.h"
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
-int main(void)
-{
-    char *password;
-
-    password = generate_password();
-    if (password == NULL)
-    {
-        fprintf(stderr, "Error: Unable to generate password.\n");
-        return (EXIT_FAILURE);
+int main(int argc, char *argv[]) {
+    if (argc != 2) {
+        printf("Usage: %s <password>\n", argv[0]);
+        return 1;
     }
 
-    printf("Generated password: %s\n", password);
+    // Replace the following strcmp with the correct comparison function for 101-crackme
+    if (strcmp(argv[1], "PASSWORD_HERE") == 0) {
+        printf("Tada! Congrats\n");
+    } else {
+        printf("Try again!\n");
+    }
 
-    free(password); /* Don't forget to free the allocated memory */
-
-    return (EXIT_SUCCESS);
+    return 0;
 }
