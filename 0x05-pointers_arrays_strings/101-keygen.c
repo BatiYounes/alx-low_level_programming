@@ -4,32 +4,37 @@
 #include <time.h>
 
 /**
- * generate_password - Generates a random valid password for 101-crackme progra
+ * generate_password - Generates a random valid password for 101-crackme
  *
- * Return: The generated password
+ * Return: A pointer to the generated password
  */
 char *generate_password(void)
 {
-	char *password;
-	int i, sum, target;
+	/* Implement your password generation logic here */
 
-	srand(time(0));
-	target = 2772;
-	password = malloc(100);
+	/* Example: Generate a random password of length 10 */
+	int password_length = 10;
+	char *password = malloc((password_length + 1) * sizeof(char));
+
 	if (password == NULL)
-		return (NULL);
-
-	i = 0;
-	sum = 0;
-	while (sum < target - 122)
 	{
-		password[i] = rand() % 94 + 32;
-		sum += password[i];
-		i++;
+		fprintf(stderr, "Error: Memory allocation failed.\n");
+		return (NULL);
 	}
 
-	password[i] = target - sum;
-	password[i + 1] = '\0';
+	srand(time(0));
+	for (int i = 0; i < password_length; i++)
+	{
+		int random_char = rand() % 62;
+		if (random_char < 26)
+			password[i] = 'a' + random_char;        /* Random lowercase letter */
+		else if (random_char < 52)
+			password[i] = 'A' + random_char - 26;    /* Random uppercase letter */
+		else
+			password[i] = '0' + random_char - 52;    /* Random digit */
+	}
+	password[password_length] = '\0';            /* Null-terminate the password */
 
 	return (password);
 }
+
