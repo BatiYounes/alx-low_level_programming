@@ -1,7 +1,8 @@
+#include <stdio.h>
 #include "main.h"
 
 /**
- * main - Entry point of the program.
+ * main - check the code
  *
  * Return: Always 0.
  */
@@ -9,18 +10,8 @@ int main(void)
 {
     char *str;
 
-    str = "I do not fear computers. I fear the lack of them - Isaac Asimov";
-    _puts(str);
-
-    str = "My School";
-    print_rev(str);
-
-    str = "Holberton";
-    rev_string(str);
-
     str = "0123456789";
     puts2(str);
-
     return (0);
 }
 
