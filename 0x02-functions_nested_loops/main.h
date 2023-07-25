@@ -16,5 +16,6 @@ void print_to_98(int n);
 void print_times_table(int n);
 int sum_of_multiples(void);
 void print_fibonacci(void);
+long fibonacci_sum_even(long limit);
 
 #endif /* MAIN_H */
