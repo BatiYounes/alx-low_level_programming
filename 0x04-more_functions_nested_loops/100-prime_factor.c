@@ -1,40 +1,34 @@
 #include "main.h"
-#include <stdio.h>
-#include <math.h>
 
 /**
- * largest_prime_factor - Finds the largest prime factor of a given number.
- * @n: The number to find the largest prime factor of.
+ * largest_prime_factor - Finds the largest prime factor of a number.
+ * @num: The number to find the largest prime factor for.
  *
- * Return: The largest prime factor of the number 'n'.
+ * Return: The largest prime factor of the number.
  */
-long largest_prime_factor(long n)
+long largest_prime_factor(long num)
 {
-	long factor, max_factor;
+	long divisor, largest;
 
-	max_factor = -1;
-	while (n % 2 == 0)
-	{
-		max_factor = 2;
-		n /= 2;
-	}
+	divisor = 2;
+	largest = 0;
 
-	for (factor = 3; factor <= sqrt(n); factor += 2)
+	while (num > 1)
 	{
-		while (n % factor == 0)
+		if (num % divisor == 0)
 		{
-			max_factor = factor;
-			n /= factor;
+			num /= divisor;
+			if (divisor > largest)
+				largest = divisor;
+		}
+		else
+		{
+			if (divisor == 2)
+				divisor++;
+			else
+				divisor += 2;
 		}
 	}
 
-	if (n > 2)
-		max_factor = n;
-
-	return (max_factor);
+	return (largest);
 }
-
-
-
-
-

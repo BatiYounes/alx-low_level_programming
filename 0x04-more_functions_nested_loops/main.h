@@ -30,7 +30,7 @@ void print_chessboard(char (*a)[8]);
 void print_diagsums(int *a, int size);
 void set_string(char **s, char *to);
 void print_triangle(int size);
-long largest_prime_factor(long n);
 void print_number(int n);
+long largest_prime_factor(long num);
 
 #endif /* MAIN_H */

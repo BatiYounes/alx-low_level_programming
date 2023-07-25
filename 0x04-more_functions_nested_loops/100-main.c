@@ -1,12 +1,12 @@
-#include "main.h"
 #include <stdio.h>
+#include "main.h"
 
 int main(void)
 {
-    long number = 612852475143;
-    long result = largest_prime_factor(number);
+	long num = 612852475143;
+	long largest_prime = largest_prime_factor(num);
 
-    printf("%ld\n", result);
-    return (0);
+	printf("%ld\n", largest_prime);
+
+	return (0);
 }
-
