@@ -1,36 +1,27 @@
 #include "main.h"
 
 /**
- * print_number - Prints an integer.
- * @n: The integer to be printed.
+ * print_number - Prints an integer
+ *
+ * @n: The integer to print
  */
 void print_number(int n)
 {
-	int last_digit, reversed;
+	unsigned int num;
 
-	if (n == 0)
-	{
-		_putchar('0');
-		return;
-	}
-	else if (n < 0)
+	if (n < 0)
 	{
 		_putchar('-');
-		n = -n;
+		num = -n;
+	}
+	else
+	{
+		num = n;
 	}
 
-	reversed = 0;
-	while (n != 0)
+	if (num / 10 != 0)
 	{
-		last_digit = n % 10;
-		reversed = reversed * 10 + last_digit;
-		n /= 10;
+		print_number(num / 10);
 	}
-
-	while (reversed != 0)
-	{
-		last_digit = reversed % 10;
-		_putchar(last_digit + '0');
-		reversed /= 10;
-	}
+	_putchar('0' + num % 10);
 }
