@@ -18,4 +18,22 @@ int sum_of_multiples(void);
 void print_fibonacci(void);
 long fibonacci_sum_even(long limit);
 
+#define NUM_DIGITS 1000
+
+/**
+ * struct bigint - Structure to represent large numbers
+ * @num: Array to store the digits of the number
+ * @size: Number of digits in the number
+ */
+typedef struct bigint
+{
+    int num[NUM_DIGITS];
+    int size;
+} bigint_t;
+
+void print_bigint(const bigint_t *n);
+void copy_bigint(bigint_t *dest, const bigint_t *src);
+void add_bigint(bigint_t *res, const bigint_t *a, const bigint_t *b);
+void fibonacci_98(void);
+
 #endif /* MAIN_H */
