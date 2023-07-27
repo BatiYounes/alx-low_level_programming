@@ -7,8 +7,7 @@ int main(void)
     char *ptr;
 
     ptr = cap_string(str);
-    printf("%s", ptr);
-    printf("%s", str);
-    return (0);
+    printf("%s\n", ptr); /* Print the modified string */
+    printf("%s\n", str); /* Print the original string (to show it's not modified in place) */
+    return 0;
 }
-x

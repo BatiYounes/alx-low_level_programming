@@ -1,48 +1,35 @@
-#include "main.h"
+#include <stddef.h>
+#include <ctype.h>
 
-/**
- * is_separator - Checks if a character is a word separator.
- * @c: The character to check.
- *
- * Return: 1 if the character is a separator, 0 otherwise.
- */
-int is_separator(char c)
-{
-	char separators[] = " \t\n,;.!?\"(){}";
-	int i; // Move the loop declaration outside
-
-	for (i = 0; separators[i]; i++)
-	{
-		if (c == separators[i])
-			return 1;
-	}
-
-	return 0;
-}
-
-/**
- * cap_string - Capitalizes all words in a string.
- * @str: The input string.
- *
- * Return: Pointer to the modified string.
- */
 char *cap_string(char *str)
 {
-	char *ptr = str;
-	int capitalize = 1;
+    if (str == NULL)
+        return NULL;
 
-	while (*ptr)
-	{
-		if (is_separator(*ptr))
-			capitalize = 1;
-		else if (capitalize && (*ptr >= 'a' && *ptr <= 'z'))
-		{
-			*ptr = *ptr - ('a' - 'A');
-			capitalize = 0;
-		}
+    int capitalize_next; /* Declare the variable here */
+    char *current = str;
 
-		ptr++;
-	}
+    capitalize_next = 1; /* Initialize the variable */
 
-	return str;
+    while (*current)
+    {
+        if (capitalize_next && islower(*current))
+            *current = toupper(*current);
+
+        switch (*current)
+        {
+            case ' ': case '\t': case '\n':
+            case ',': case ';': case '.': case '!': case '?':
+            case '"': case '(': case ')': case '{': case '}':
+                capitalize_next = 1;
+                break;
+            default:
+                capitalize_next = 0;
+                break;
+        }
+
+        current++;
+    }
+
+    return str;
 }

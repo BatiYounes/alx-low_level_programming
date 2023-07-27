@@ -1,4 +1,4 @@
-0;276;0c#ifndef MAIN_H
+#ifndef MAIN_H
 #define MAIN_H
 
 /* Function prototypes */
