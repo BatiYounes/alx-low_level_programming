@@ -1,0 +1,37 @@
+#include "main.h"
+
+/**
+ * rot13 - Encodes a string using rot13.
+ * @str: The input string to encode.
+ *
+ * Return: Pointer to the encoded string.
+ */
+char *rot13(char *str)
+{
+	char *ptr = str;
+	char *alpha = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
+	char *rot13 = "NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm";
+
+	while (*str)
+	{
+		char *check = alpha;
+		char *code = rot13;
+		char found = 0;
+
+		while (*check)
+		{
+			if (*str == *check)
+			{
+				*str = *code;
+				found = 1;
+				break;
+			}
+			check++;
+			code++;
+		}
+
+		str++;
+	}
+
+	return (ptr);
+}
