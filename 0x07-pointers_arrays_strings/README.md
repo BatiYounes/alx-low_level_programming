@@ -1,0 +1,1 @@
+this is a file is made for the task of the pointers and more
