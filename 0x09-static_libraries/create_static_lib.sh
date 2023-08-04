@@ -1,10 +1,16 @@
 #!/bin/bash
 
-# Compile all .c files into .o files
-gcc -c *.c -I.
+# Create a temporary directory to store object files
+mkdir tmp_objects
 
-# Create the static library liball.a from all .o files
-ar rcs liball.a *.o
+# Compile all .c files into .o files and store them in the temporary directory
+for file in *.c
+do
+  gcc -Wall -pedantic -Werror -Wextra -c "$file" -o "tmp_objects/${file%.c}.o"
+done
 
-# Clean up by removing the .o files
-rm *.o
+# Create the static library liball.a from all .o files in the temporary directory
+ar rcs liball.a tmp_objects/*.o
+
+# Clean up by removing the temporary directory
+rm -rf tmp_objects
