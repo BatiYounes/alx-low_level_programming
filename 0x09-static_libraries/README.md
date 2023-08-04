@@ -1,0 +1,1 @@
+this direction is made for static task
