@@ -10,24 +10,23 @@
 
 int main(void)
 {
-    int random_password = 0, a = 0;
-    char charset[] = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()_-+={}[]|:;<>,.?/";
+	int random_password = 0, a = 0;
 
-    time_t t;
+	time_t t;
 
-    srand((unsigned int)time(&t));
+	srand((unsigned int) time(&t));
 
-    while (a < 2772)
-    {
-        random_password = rand() % (sizeof(charset) - 1);
-        if ((a + random_password) > 2772)
-        {
-            break;
-        }
-        a = a + random_password;
-        printf("%c", charset[random_password]);
-    }
-    printf("%c\n", charset[2772 - a]);
+	while (a < 2772)
+	{
+		random_password = rand() % 128;
+		if ((a + random_password) > 2772)
+		{
+			break;
+		}
+		a = a + random_password;
+		printf("%c", random_password);
+	}
+	printf("%c\n", (2772 - a));
 
-    return (0);
+	return (0);
 }
