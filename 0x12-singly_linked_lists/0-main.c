@@ -1,46 +1,19 @@
-#include <stdlib.h>
-#include <stdio.h>
-#include "lists.h" // Assuming this is where list_t is defined
+#ifndef MAIN_H
+#define MAIN_H
 
-int main(void)
+#include <stddef.h>
+
+/* Structure for the linked list nodes */
+struct list_s
 {
-    list_t *head = NULL;
-    list_t *new = NULL;
-    size_t n;
+    char *str;
+    size_t len;
+    struct list_s *next;
+};
+typedef struct list_s list_t;
 
-    new = malloc(sizeof(list_t));
-    if (new == NULL)
-    {
-        printf("Error\n");
-        return (1);
-    }
-    new->str = strdup("Hello");
-    new->len = 5;
-    new->next = head;
-    head = new;
+/* Function prototype */
+size_t print_list(const list_t *h);
 
-    new = malloc(sizeof(list_t));
-    if (new == NULL)
-    {
-        printf("Error\n");
-        return (1);
-    }
-    new->str = strdup("World");
-    new->len = 5;
-    new->next = head;
-    head = new;
+#endif /* MAIN_H */
 
-    n = print_list(head);
-    printf("-> %lu elements\n", n);
-
-    /* Free allocated memory */
-    while (head != NULL)
-    {
-        list_t *temp = head;
-        head = head->next;
-        free(temp->str);
-        free(temp);
-    }
-
-    return (0);
-}

@@ -1,12 +1,3 @@
-Resources
-Read or watch:
-
-Linked Lists
-Google
-Youtube
-Learning Objectives
-At the end of this project, you are expected to be able to explain to anyone, without the help of Google:
-
 General
 When and why using linked lists vs arrays
 How to build and use linked lists
@@ -31,11 +22,3 @@ In the following examples, the main.c files are shown as examples. You can use t
 The prototypes of all your functions and the prototype of the function _putchar should be included in your header file called lists.h
 Don’t forget to push your header file
 All your header files should be include guarded
-More Info
-Please use this data structure for this project:
-
-/**
- * struct list_s - singly linked list
- * @str: string - (malloc'ed string)
- * @len: length of the string
- * @next: points to the next nod
