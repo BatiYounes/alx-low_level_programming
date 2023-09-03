@@ -1,1 +1,0 @@
-This dir for the argc and argv 
