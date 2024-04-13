@@ -1,0 +1,4 @@
+git add .
+git commit -m "ding the task of 0x1E C - search algorithms"
+
+git push origin
