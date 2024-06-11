@@ -16,11 +16,18 @@ $(NAME): $(OBJ) m.h
 	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
-	$(RM) $(NAME) $(OBJ) *~
+	$(RM) $(NAME) $(OBJ) *~ school
 
 oclean:
 	$(RM) $(OBJ)
 
 fclean: clean oclean
+	$(RM) $(NAME)
 
 re: fclean all
+
+%.o: %.c m.h
+
+m.h:
+	@echo "Error: m.h file is missing"
+	@exit 1
