@@ -1,0 +1,3 @@
+git add .
+git commit -m "doing the task 0X01 C makefiles "
+git push origin 
