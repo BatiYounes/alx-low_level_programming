@@ -1,6 +1,6 @@
 # Variables
 CC = gcc
-SRC = $(wildcard *.c)
+SRC = main.c other_source_file.c  # List your source files explicitly
 OBJ = $(SRC:.c=.o)
 NAME = school
 CFLAGS = -Wall -Werror -Wextra -pedantic
@@ -14,12 +14,13 @@ $(NAME): $(OBJ)
 
 # Delete the executable and object files
 clean:
-	$(RM) $(NAME)
-	$(RM) $(OBJ)
+	@$(RM) $(NAME)
+	@$(RM) *.o
+	@rm -f *~
 
 # Delete the object files
 oclean:
-	$(RM) $(OBJ)
+	@$(RM) *.o
 
 # Delete the executable, object files, and temporary files
 fclean: clean
@@ -28,7 +29,11 @@ fclean: clean
 re: fclean all
 
 # Ensure the header file m.h exists
-$(OBJ): m.h
+main.o: main.c m.h
+	$(CC) $(CFLAGS) -c main.c
+
+other_source_file.o: other_source_file.c m.h
+	$(CC) $(CFLAGS) -c other_source_file.c
 
 # Phony targets
 .PHONY: all clean oclean fclean re
