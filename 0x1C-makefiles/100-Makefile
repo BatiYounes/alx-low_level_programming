@@ -4,6 +4,7 @@ SRC = main.c other_source_file.c  # List your source files explicitly
 OBJ = $(SRC:.c=.o)
 NAME = school
 CFLAGS = -Wall -Werror -Wextra -pedantic
+RM = rm -f
 
 # Default target
 all: $(NAME)
@@ -12,11 +13,18 @@ all: $(NAME)
 $(NAME): $(OBJ)
 	$(CC) $(OBJ) -o $(NAME)
 
+# Compile each source file into an object file
+main.o: main.c m.h
+	$(CC) $(CFLAGS) -c main.c -o main.o
+
+other_source_file.o: other_source_file.c m.h
+	$(CC) $(CFLAGS) -c other_source_file.c -o other_source_file.o
+
 # Delete the executable and object files
 clean:
 	@$(RM) $(NAME)
 	@$(RM) *.o
-	@rm -f *~
+	@$(RM) *~
 
 # Delete the object files
 oclean:
@@ -27,13 +35,6 @@ fclean: clean
 
 # Recompile all source files
 re: fclean all
-
-# Ensure the header file m.h exists
-main.o: main.c m.h
-	$(CC) $(CFLAGS) -c main.c
-
-other_source_file.o: other_source_file.c m.h
-	$(CC) $(CFLAGS) -c other_source_file.c
 
 # Phony targets
 .PHONY: all clean oclean fclean re
