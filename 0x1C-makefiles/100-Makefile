@@ -1,40 +1,34 @@
-# Variables
-CC = gcc
-SRC = main.c other_source_file.c  # List your source files explicitly
-OBJ = $(SRC:.c=.o)
+# Define compiler (implicitly uses CFLAGS)
+CC = gcc -Wall -Werror -Wextra -pedantic
+
+# Define executable name
 NAME = school
-CFLAGS = -Wall -Werror -Wextra -pedantic
+
+# Define pattern for object files
+OBJ = $(SRC:.c=.o)
+
+# Define program used for deletion (implicitly uses RM)
 RM = rm -f
 
-# Default target
-all: $(NAME)
+.PHONY: all clean fclean oclean re
 
-# Build the executable
-$(NAME): $(OBJ)
-	$(CC) $(OBJ) -o $(NAME)
+all: $(OBJ)
+    $(CC) $(OBJ) -o $(NAME)
 
-# Compile each source file into an object file
-main.o: main.c m.h
-	$(CC) $(CFLAGS) -c main.c -o main.o
-
-other_source_file.o: other_source_file.c m.h
-	$(CC) $(CFLAGS) -c other_source_file.c -o other_source_file.o
-
-# Delete the executable and object files
 clean:
-	@$(RM) $(NAME)
-	@$(RM) *.o
-	@$(RM) *~
+    $(RM) $(OBJ) $(NAME) *~ *.swp
 
-# Delete the object files
-oclean:
-	@$(RM) *.o
-
-# Delete the executable, object files, and temporary files
 fclean: clean
+    $(RM) *~ *.swp
 
-# Recompile all source files
-re: fclean all
+oclean:
+    $(RM) $(OBJ)
 
-# Phony targets
-.PHONY: all clean oclean fclean re
+re:
+    $(RM) $(OBJ)
+    $(MAKE) all
+
+# Implicit rule for compiling object files
+%.o: %.c m.h
+    $(CC) -c $< -o $@
+
