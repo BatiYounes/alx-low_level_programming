@@ -1,33 +1,34 @@
-CC := gcc
-SRC := file1.c file2.c file3.c
-NAME := school
-OBJ := $(SRC:.c=.o)
-RM := rm -f
-CFLAGS := -Wall -Werror -Wextra -pedantic
+# Variables
+CC = gcc
+SRC = $(wildcard *.c)
+OBJ = $(SRC:.c=.o)
+NAME = school
+CFLAGS = -Wall -Werror -Wextra -pedantic
 
-.PHONY: all clean oclean fclean re
-
+# Default target
 all: $(NAME)
 
-$(NAME): $(OBJ) m.h
-	$(CC) $(CFLAGS) $(OBJ) -o $(NAME)
+# Build the executable
+$(NAME): $(OBJ)
+	$(CC) $(OBJ) -o $(NAME)
 
-%.o: %.c
-	$(CC) $(CFLAGS) -c $< -o $@
-
+# Delete the executable and object files
 clean:
-	$(RM) $(NAME) $(OBJ) *~ school
+	$(RM) $(NAME)
+	$(RM) $(OBJ)
 
+# Delete the object files
 oclean:
 	$(RM) $(OBJ)
 
-fclean: clean oclean
-	$(RM) $(NAME)
+# Delete the executable, object files, and temporary files
+fclean: clean
 
+# Recompile all source files
 re: fclean all
 
-%.o: %.c m.h
+# Ensure the header file m.h exists
+$(OBJ): m.h
 
-m.h:
-	@echo "Error: m.h file is missing"
-	@exit 1
+# Phony targets
+.PHONY: all clean oclean fclean re
