@@ -1,0 +1,5 @@
+git add .
+
+git commit -m "doing the task of Search algorithms"
+
+git push origin 
