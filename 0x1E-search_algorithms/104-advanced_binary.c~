@@ -1,0 +1,68 @@
+#include "search_algos.h"
+#include <stdio.h>
+
+/**
+ * print_array - Prints an array
+ * @array: Pointer to the first element of the array
+ * @left: Starting index to print from
+ * @right: Ending index to print to
+ */
+void print_array(int *array, size_t left, size_t right)
+{
+	printf("Searching in array: ");
+	for (; left <= right; left++)
+	{
+		printf("%d", array[left]);
+		if (left < right)
+			printf(", ");
+	}
+	printf("\n");
+}
+
+/**
+ * adv_bin_recur - Performs binary search recursively
+ * @array: Pointer to the first element of the array
+ * @left: Starting index of the array
+ * @right: Ending index of the array
+ * @value: Value to search for
+ * @orig_left: Original left index to adjust mid
+ * @orig_right: Original right index to adjust mid
+ * Return: Index where value is located, -1 if not found
+ */
+int adv_bin_recur(int *array, size_t left, size_t right, int value,
+                  size_t orig_left, size_t orig_right)
+{
+	size_t mid;
+
+	if (left <= right)
+	{
+		print_array(array, left, right);
+		mid = left + (right - left) / 2;
+
+		if (array[mid] == value)
+		{
+			if (mid == orig_left)
+				return (mid);
+			print_array(array, left, mid);
+			return (adv_bin_recur(array, left, mid, value, orig_left, orig_right));
+		}
+		if (array[mid] < value)
+			return (adv_bin_recur(array, mid + 1, right, value, orig_left, orig_right));
+		return (adv_bin_recur(array, left, mid, value, orig_left, orig_right));
+	}
+	return (-1);
+}
+
+/**
+ * Searches for a value in a sorted array using advanced binary search
+ * @array: Pointer to the first element of the array
+ * @size: Number of elements in array
+ * @value: Value to search for
+ * Return: Index where value is located, -1 if not found
+ */
+int advanced_binary(int *array, size_t size, int value)
+{
+	if (array == NULL || size == 0)
+		return (-1);
+	return (adv_bin_recur(array, 0, size - 1, value, 0, size - 1));
+}
