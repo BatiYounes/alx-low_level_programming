@@ -1,0 +1,43 @@
+#include "search_algos.h"
+
+/**
+ * jump_list - searches for a value in a sorted list of integers
+ *             using the Jump search algorithm.
+ * @list: Pointer to the head of the list to search in
+ * @size: Number of nodes in list
+ * @value: Value to search for
+ *
+ * Return: Pointer to the first node where value is located,
+ *         or NULL if value is not present or head is NULL
+ */
+listint_t *jump_list(listint_t *list, size_t size, int value)
+{
+    listint_t *current = list;
+    size_t jump = sqrt(size);
+    size_t prev = 0;
+
+    if (list == NULL)
+        return NULL;
+
+    while (current->index < size && current->n < value)
+    {
+        printf("Value checked at index [%lu] = [%d]\n", current->index, current->n);
+        prev = current->index;
+        for (size_t i = 0; current->next && i < jump; i++)
+            current = current->next;
+    }
+
+    printf("Value found between indexes [%lu] and [%lu]\n", prev, current->index);
+
+    /* Linear search in the current block*/
+    while (prev <= current->index && current->n <= value)
+    {
+        printf("Value checked at index [%lu] = [%d]\n", prev, current->n);
+        if (current->n == value)
+            return current;
+        prev++;
+        current = current->next;
+    }
+
+    return NULL; /*  If value is not found*/
+}
