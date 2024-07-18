@@ -9,7 +9,7 @@
  * @size: Number of elements in the array
  * @value: Value to search for
  *
- * First index where value is located, or -1 if not present or array is NULL
+ * Return: First index whr val is located, or -1 if not present or array is NULL
  */
 int jump_search(int *array, size_t size, int value)
 {
