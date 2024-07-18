@@ -43,6 +43,10 @@ int interpolation_search(int *array, size_t size, int value)
 			high = pos - 1;
 	}
 
+	/* Print the last checked position which would be out of range */
+	pos = low + (((double)(high - low) /
+		(array[high] - array[low])) * (value - array[low]));
 	printf("Value checked array[%lu] is out of range\n", pos);
+
 	return (-1);
 }
